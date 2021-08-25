@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passagem de Parâmetros via GET</title>
+    <title>Passagem de Parâmetros</title>
 </head>
 <body>
     <form action="adivinhe_senhas_gabarito.php" method="post">
