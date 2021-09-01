@@ -5,16 +5,20 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     session_start();
 
-    $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
+    //$nome = $_POST['nome'];
+   // $cpf = $_POST['cpf'];
 
-    if (isset($nome)) {
+    if (isset($_POST['nome'])) {
         echo "Pessoa cadastrada com sucesso: " .PHP_EOL;
         print_r($_POST) .PHP_EOL;
         echo "Acesse o log pessoas_cadastradas.txt!";
         $arquivo = fopen('pessoas_cadastradas.txt', 'a+');  
-        fwrite($arquivo, $nome .PHP_EOL);
-        fwrite($arquivo, $cpf .PHP_EOL);
+        fwrite($arquivo, $_POST['nome'] .PHP_EOL);
+        fwrite($arquivo, $_POST['cpf'] .PHP_EOL);
+    }
+
+    if (isset($_POST['log'])) {
+        header("location: pessoas_cadastradas.txt");
     }
 
 }
@@ -44,19 +48,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>    
             <div class="form-group">
                 <label>CPF</label>
-                <input type="cpf" name="cpf" class="form-control" id="cpf">
+                <input type="text" name="cpf" class="form-control" id="cpf">
                 <span class="help-block"></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>
+            <div class="form-group">
+                <input type="submit" name="log" class="btn btn-warning" value="Visualizar log/cadastros" id="log">
+            </div>
            
         </form>
-        <a href="pessoas_cadastradas.txt">
-                <button>Visualizar log/cadastros</button>
-            </a>
-        </div>
-        
+    
 
 
     </div>    

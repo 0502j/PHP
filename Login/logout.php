@@ -11,4 +11,4 @@ session_destroy();
 // Redireciona para página de login
 header("location: index.php");
 exit;
-?>
+?> 
