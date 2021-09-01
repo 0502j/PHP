@@ -1,8 +1,30 @@
 <?php
  
 
+ session_start();
+ //Se voltar a página após visualizar cadastro não perde a sessão
+ header('Cache-Control: no cache');
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+     header("location: index.php");
+     exit;
+ }else{
+    if (isset($_POST['nome'])) {
+        echo "Pessoa cadastrada com sucesso: " .PHP_EOL;
+        print_r($_POST) .PHP_EOL;
+        echo "Acesse o log pessoas_cadastradas.txt!";
+        $arquivo = fopen('pessoas_cadastradas.txt', 'a+');  
+        fwrite($arquivo, $_POST['nome'] .PHP_EOL);
+        fwrite($arquivo, $_POST['cpf'] .PHP_EOL);
+    }
+
+    if (isset($_POST['log'])) {
+        header("location: pessoas_cadastradas.txt");
+    }
+ }
+
+/*
+ if($_SERVER["REQUEST_METHOD"] == "POST"){
     session_start();
 
     //$nome = $_POST['nome'];
@@ -23,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
+*/
 
 ?>
  
