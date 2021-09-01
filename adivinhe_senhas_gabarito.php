@@ -13,6 +13,7 @@
 $senha = 'senhalegal';
 
  print_r($_POST);
+ 
  $adivinha = $_POST['senha'];
 
  if($adivinha == $senha){
@@ -20,7 +21,7 @@ $senha = 'senhalegal';
  }else{
      echo "Voce errou.";
      //Abrindo o arquivo para gravar as senhas erradas
-     $arquivo = fopen('adivinhe_senhas_enviadas.txt', 'a');  
+     $arquivo = fopen('adivinhe_senhas_enviadas.txt', 'a+');  
      fwrite($arquivo, $adivinha .PHP_EOL); // Grava os dados no arquivo
  }
 
