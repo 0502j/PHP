@@ -55,6 +55,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <br>
                 <a href="cadastro_alunos.php" class="btn btn-info">Cadastrar alunos</a>
                 <a href="update_alunos.php" class="btn btn-info ">Atualizar alunos</a>
+                <a href="delete_alunos.php" class="btn btn-info ">Remover alunos</a>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <a href="visualiza_alunos.php" class="btn btn-info ">Visualizar alunos (banco)</a>
                     <div class="form">
