@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="inicial justify-content-center">
             <div class="wrapper">
                 <h2 style="text-align: center;">Acessar o sistema</h2>
-                <p style="text-align: center;">Insira login e senha para o usuário Jamile.</p>
+                <p style="text-align: center;">Insira login e senha para o usuário.</p>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group">
                         <label>Usuario</label>

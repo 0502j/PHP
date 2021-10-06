@@ -43,22 +43,19 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <div class="d-flex justify-content-center py-5">
         <div class="inicial justify-content-center">
             <div class="page-header">
-                <h2 style="padding-top:30px;">Olá <b><?php echo htmlspecialchars($_SESSION["username"]); ?>
-                        <br>
-                    </b>Bem vindo(a) ao sistema de alunos</h2>
+                <h2 style="padding-top:30px;">Relatório de alunos</h2>
             </div>
             <p>
             <div class="btn-group">
                 <br>
-                <h4>Selecione uma operação: </h4>
+                <h4>Selecione um relatório: </h4>
                 <br>
-                <a href="cadastro_alunos.php" class="btn btn-info">Cadastrar alunos</a>
-                <a href="update_alunos.php" class="btn btn-info ">Atualizar alunos</a>
-                <a href="delete_alunos.php" class="btn btn-info ">Remover alunos</a>
+                <a href="visualiza_alunos.php" class="btn btn-info">Visualizar alunos (banco de dados)</a>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <a href="relatorio_alunos.php" class="btn btn-info ">Relatório de alunos</a>
+                    <div class="form">
+                        <input type="submit" name="log" class="btn btn-info" value="Visualizar alunos (txt)" id="log">
+                    </div>
                 </form>
-                <a href="sair.php" class="btn btn-info">Sair do sistema</a>
                 </p>
             </div>
             <br>
