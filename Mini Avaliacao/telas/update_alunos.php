@@ -37,19 +37,12 @@
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
             $sql = "UPDATE aluno SET nome='$nome', idade='$idade', curso='$curso', cpf='$cpf' WHERE alunoId='$id' ";
-        
-            // Prepare statement
             $stmt = $conn->prepare($sql);
-        
-            // execute the query
             $stmt->execute();
-        
-            // echo a message to say the UPDATE succeeded
-            echo $stmt->rowCount() . " registros atualizados com sucesso!";
+            echo $stmt->rowCount() . "Registros atualizados com sucesso!";
+
             }
         catch(PDOException $e)
             {
@@ -57,7 +50,6 @@
             }
         
         $conn = null;
-
 
         /*FIM DO UPDATE*/
 

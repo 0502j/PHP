@@ -2,7 +2,6 @@
 
 require_once('dados_banco.php');
 
-
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     try {
@@ -14,17 +13,23 @@ if (isset($_POST['id'])) {
       
         if ( count($result) ) {
           foreach($result as $row) {
+            echo '<br><br>';
+            echo  '    '.'Aluno encontrado:';
             print_r($row);
+            echo '<br><br>';
+
+
           }
         } else {
-          echo "Nennhum resultado retornado. Verifique se o aluno está registrado ou se o valor foi inserido.";
+            echo '<br><br>';
+            echo "Nenhum resultado retornado. Verifique se o aluno está registrado ou se o valor foi inserido.";
+            echo '<br><br>';
         }
       } catch(PDOException $e) {
           echo 'ERROR: ' . $e->getMessage();
       }
       
 }
-
 
 ?>
 
@@ -56,12 +61,16 @@ if (isset($_POST['id'])) {
             .wrapper{ 
             width: 350px; padding: 20px; 
             }
+
+            .form-group{
+                text-align: center;
+            }
         
     </style>
 
 </head>
 <body>
-    <div class="inicial justify-content-center py-5">
+    <div class="inicial justify-content-center" style="padding:40px;">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group">
                         <label>ID do aluno:</label>
