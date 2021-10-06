@@ -1,0 +1,12 @@
+body{ 
+    font: 14px sans-serif;
+    background-image: url("img/fundo-sistema.jpg");
+    }
+
+    .inicial{
+    background-color: aliceblue;
+
+    }
+    .wrapper{ 
+    width: 350px; padding: 20px; 
+    }
