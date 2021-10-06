@@ -1,12 +1,42 @@
+/*Desktop*/
+
 body{ 
-    font: 14px sans-serif;
+    font: 1.5rem sans-serif;
     background-image: url("img/fundo-sistema.jpg");
     }
 
-    .inicial{
+.inicial{
     background-color: aliceblue;
 
+}
+.wrapper{ 
+    width: 50%; padding: 2rem; 
     }
+
+/*Mobile*/
+@media only screen and (max-width: 600px) {
+    body {
+            font: 2rem sans-serif;
+        }
+
+    .inicial{
+            background-color: aliceblue;
+            width: 100%; padding: 2rem; 
+        }
+
     .wrapper{ 
-    width: 350px; padding: 20px; 
-    }
+        width: 100%; 
+        padding: 2rem; 
+        }
+
+    .btn {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+
+}
+
+
