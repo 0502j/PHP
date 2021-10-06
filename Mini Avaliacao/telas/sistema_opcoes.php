@@ -27,6 +27,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         text-align: center; 
         }
     
+        .btn{
+            display: flex;
+            justify-content: center;
+            width:100%;
+            margin-bottom: 15px;
+        }
+
+        .btn-group{
+                text-align: center;
+            }
     </style>
 
 </head>
@@ -39,25 +49,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </b>Bem vindo(a) ao sistema de cadastro de alunos</h2>
             </div>
             <p>
+                <div class="btn-group">
                 <br>
                 <h4>Selecione uma operação: </h4>
                 <br>
-                <a href="cadastro_alunos.php" class="btn btn-info">Cadastrar alunos no sistema</a>
-                <br><br>
-                <a href="update_alunos.php" class="btn btn-info">Atualizar alunos cadastrados</a>
-                <br><br>
+                <a href="cadastro_alunos.php" class="btn btn-info">Cadastrar alunos</a>
+                <a href="update_alunos.php" class="btn btn-info ">Atualizar alunos</a>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <a href="visualiza_alunos.php" class="btn btn-info ">Visualizar alunos (banco)</a>
                 <div class="form">
-                <input type="submit" name="log" class="btn btn-info" value="Visualizar alunos registrados (txt)" id="log">
+                <input type="submit" name="log" class="btn btn-info" value="Visualizar alunos (txt)" id="log">
                 </div>
                 </form>
-                <br>
-                <a href="visualiza_alunos.php" class="btn btn-info">Visualizar alunos registrados (banco)</a>
-                <br><br>
                 <a href="sair.php" class="btn btn-info">Sair do sistema</a>
-                <br><br>
+                
 
             </p>
+            </div>
             <br>
         </div>
 
