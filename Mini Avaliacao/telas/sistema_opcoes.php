@@ -46,8 +46,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <br><br>
                 <a href="update_alunos.php" class="btn btn-info">Atualizar alunos cadastrados</a>
                 <br><br>
-                <a href="sair.php" class="btn btn-info">Sair do sistema</a>
-                <br><br>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form">
                 <input type="submit" name="log" class="btn btn-info" value="Visualizar alunos registrados (txt)" id="log">
@@ -55,6 +53,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </form>
                 <br>
                 <a href="visualiza_alunos.php" class="btn btn-info">Visualizar alunos registrados (banco)</a>
+                <br><br>
+                <a href="sair.php" class="btn btn-info">Sair do sistema</a>
                 <br><br>
 
             </p>
