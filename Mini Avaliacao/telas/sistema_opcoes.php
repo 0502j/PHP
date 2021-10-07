@@ -5,6 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 } else {
 
+    /*Envia para o arquivo alunos_cadastrados.txt*/
     if (isset($_POST['log'])) {
         header("location: alunos_cadastrados.txt");
     }

@@ -5,6 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 } else {
 
+    /*Envia para o arquivo alunos_cadastrados.txt*/
     if (isset($_POST['log'])) {
         header("location: alunos_cadastrados.txt");
     }
@@ -56,6 +57,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <input type="submit" name="log" class="btn btn-info" value="Visualizar alunos (txt)" id="log">
                     </div>
                 </form>
+                <a href="visualiza_alunos_curso.php" class="btn btn-info">Quantidade de alunos por curso</a>
                 </p>
             </div>
             <br>

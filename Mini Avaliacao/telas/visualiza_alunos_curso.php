@@ -2,34 +2,36 @@
 
 require_once('dados_banco.php');
 
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
 
-    /*INICIO DO SELECT PARA MOSTRAR OS DADOS DO ALUNO A PARTIR DO ID*/
+$curso = $_POST['curso'];
+
+if ($curso == 'DSM' or  $curso == 'GE' or $curso == 'SI') {
+
+    /*INICIO DO SELECT PARA MOSTRAR OS DADOS A PARTIR DO CURSO*/
     try {
         $conn = new PDO('mysql:host=localhost;dbname=alunosfatec', $username, $password);
-        $stmt = $conn->prepare('SELECT * FROM aluno WHERE alunoId = :id');
-        $stmt->execute(array('id' => $id));
+        $stmt = $conn->prepare('SELECT COUNT(alunoId) FROM aluno WHERE curso = :curso');
+        $stmt->execute(array('curso' => $curso));
 
         $result = $stmt->fetchAll();
 
         if (count($result)) {
             foreach ($result as $row) {
                 echo '<br><br>';
-                echo  '    ' . 'Aluno encontrado:';
+                echo  '    ' . 'Quantidade de encontrados no curso digitado:';
                 print_r($row);
                 echo '<br><br>';
             }
-        } else {
-            echo '<br><br>';
-            echo "Nenhum resultado retornado. Verifique se o aluno está registrado ou se o valor foi inserido.";
-            echo '<br><br>';
-        }
+        } 
     } catch (PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
     }
 
     /*FIM DO SELECT*/
+}else{
+    echo '<br><br>';
+    echo "Nenhum resultado retornado. Verifique o curso digitado (DSM, GE, SI)";
+    echo '<br><br>';
 }
 
 ?>
@@ -77,8 +79,8 @@ if (isset($_POST['id'])) {
     <div class="inicial justify-content-center" style="padding:40px;">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>ID do aluno:</label>
-                <input type="text" name="id" class="form-control" id="id">
+                <label>Curso:</label>
+                <input type="text" name="curso" class="form-control" id="curso">
                 <span class="help-block"></span>
             </div>
 
